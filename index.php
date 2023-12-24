@@ -1,3 +1,41 @@
+<?php
+if(isset($_POST['submit'])){
+/*    print_r('Nome: ' . $_POST['nome']);
+    print_r('<br>');
+    print_r('Email: ' . $_POST['email']);
+    print_r('<br>');
+    print_r('Telefone: ' . $_POST['telefone']);
+    print_r('<br>');
+    print_r('Genero: ' . $_POST['genero']);
+    print_r('<br>');
+    print_r('Data nascimento: ' . $_POST['data_nascimento']);
+    print_r('<br>');
+    print_r('Cidade: ' . $_POST['cidade']);
+    print_r('<br>');
+    print_r('Estado: ' . $_POST['estado']);
+    print_r('<br>');
+    print_r('Endereço: ' . $_POST['endereco']);
+}
+*/
+include_once ('config.php');
+
+$nome = $_POST['nome'];
+$email = $_POST['email'];
+$telefone = $_POST['telefone'];
+$genero = $_POST['genero'];
+$data_nasc = $_POST['data_nascimento'];
+$cidade = $_POST['cidade'];
+$estado = $_POST['estado'];
+$endereco =  $_POST['endereco'];
+
+$conect = mysqli_query($conexao, "INSERT INTO usuario (nome, email, telefone, sexo, data_nasc, cidade, estado, endereco)
+ VALUES('$nome','$email','$telefone','$genero','$data_nasc','$cidade','$estado','$endereco')");
+
+}
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -8,7 +46,7 @@
 </head>
 <body>
     <div class="box">
-        <form action="">
+        <form action="index.php" method="POST">
             <fieldset>
                 <legend><b>Formulario Cliente</b></legend>
                 <br>
@@ -57,7 +95,7 @@
                  <br><br>
                  <input type="submit" name="submit" id="submit">
 
-                
+            
                 
             </fieldset>
         
